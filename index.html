@@ -1,152 +1,284 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2822
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;}
-{\colortbl;\red255\green255\blue255;}
-{\*\expandedcolortbl;;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
-\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gerador de Anúncio Shopee</title>
+  <style>
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #c9a3ff, #e0caff);
+      color: #333;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      background: #fff;
+      border-radius: 15px;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+      padding: 20px;
+    }
+    h1 {
+      color: #7b2cbf;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    label {
+      font-weight: bold;
+      color: #5a189a;
+    }
+    input, textarea, select, button {
+      width: 100%;
+      margin: 4px 0;
+      padding: 8px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 8px;
+    }
+    .grid-2 > div {
+      display: flex;
+      flex-direction: column;
+    }
+    button {
+      background-color: #9d4edd;
+      color: #fff;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s;
+      margin-top: 12px;
+    }
+    button:hover {
+      background-color: #7b2cbf;
+    }
+    .output {
+      background: #f9f6ff;
+      border: 1px solid #ddd;
+      padding: 16px;
+      border-radius: 10px;
+      margin-top: 24px;
+    }
+    .output-section {
+      margin-bottom: 20px;
+    }
+    .output-section h2 {
+      color: #5a189a;
+      margin-bottom: 6px;
+    }
+    .output-section pre {
+      white-space: pre-wrap;
+      background: #fff;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 15px;
+      line-height: 1.6;
+    }
+    .preco-final {
+      background-color: #d4b1ff;
+      padding: 20px;
+      border-radius: 12px;
+      font-size: 22px;
+      font-weight: bold;
+      color: #4c1d95;
+      margin-bottom: 16px;
+      text-align: center;
+    }
+    .preco-final small {
+      display: block;
+      font-weight: normal;
+      margin-top: 8px;
+    }
+    .custo-breakdown {
+      background: #fff;
+      border: 1px solid #dcdcdc;
+      border-radius: 12px;
+      padding: 16px;
+      font-size: 16px;
+      line-height: 1.8;
+      color: #333;
+    }
+    .custo-breakdown b {
+      color: #7b2cbf;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>🌟 Gerador de Anúncio Shopee com IA</h1>
 
-\f0\fs24 \cf0 <!DOCTYPE html>\
-<html lang="pt-br">\
-<head>\
-  <meta charset="UTF-8">\
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">\
-  <title>Gerador de An\'fancio Shopee</title>\
-  <link rel="stylesheet" href="styles.css">\
-</head>\
-<body>\
-  <div class="container">\
-    <h1>\uc0\u55356 \u57119  Gerador de An\'fancio Shopee com IA</h1>\
-\
-    <div class="grid-2">\
-      <div>\
-        <label for="nomeProduto">Nome do Produto:</label>\
-        <input type="text" id="nomeProduto" placeholder="Ex: Garrafa Inox">\
-      </div>\
-      <div>\
-        <label for="custoProduto">Custo do Produto (R$):</label>\
-        <input type="number" id="custoProduto" placeholder="Ex: 10">\
-      </div>\
-\
-      <div>\
-        <label for="aliquota">Al\'edquota de Imposto (%):</label>\
-        <input type="number" id="aliquota" placeholder="Ex: 6">\
-      </div>\
-      <div>\
-        <label for="margem">Margem Desejada (%):</label>\
-        <input type="number" id="margem" placeholder="Ex: 30">\
-      </div>\
-\
-      <div>\
-        <label for="comissao">Comiss\'e3o da Shopee:</label>\
-        <select id="comissao">\
-          <option value="0.14">N\'e3o participo do programa de frete gr\'e1tis (14%)</option>\
-          <option value="0.20">Participo do programa de frete gr\'e1tis (20%)</option>\
-        </select>\
-      </div>\
-      <div>\
-        <label for="antecipacao">Shopee antecipa:</label>\
-        <select id="antecipacao">\
-          <option value="0">N\'e3o participa</option>\
-          <option value="0.02">Sim - 2%</option>\
-          <option value="0.025">Sim - 2.5%</option>\
-          <option value="0.03">Sim - 3.0%</option>\
-          <option value="0.035">Sim - 3.5%</option>\
-        </select>\
-      </div>\
-    </div>\
-\
-    <label for="descProduto">Descri\'e7\'e3o B\'e1sica do Produto:</label>\
-    <textarea id="descProduto" placeholder="Ex: Garrafa Inox Vermelha 500 ml"></textarea>\
-\
-    <button id="btnGerar">\uc0\u10024  Gerar Conte\'fado com IA</button>\
-\
-    <div class="output" id="resultado">\
-      <div class="output-section">\
-        <h2>Resultado</h2>\
-        <pre id="blocoResultado">Nada gerado ainda.</pre>\
-      </div>\
-      <div class="output-section">\
-        <h2>\uc0\u55357 \u56496  C\'e1lculo de Precifica\'e7\'e3o</h2>\
-        <div id="blocoPreco" class="custo-breakdown">Preencha os campos acima e clique em "Gerar".</div>\
-      </div>\
-    </div>\
-  </div>\
-\
-  <script type="module">\
-    document.getElementById('btnGerar').addEventListener('click', async function() \{\
-      const nome = document.getElementById('nomeProduto').value;\
-      const desc = document.getElementById('descProduto').value;\
-      const resultado = document.getElementById('blocoResultado');\
-      const blocoPreco = document.getElementById('blocoPreco');\
-      const palavrasChave = document.getElementById('palavrasChave');\
-      const doresSolucionadas = document.getElementById('doresSolucionadas');\
-      const obje\'e7\'f5es = document.getElementById('obje\'e7\'f5es');\
-      const beneficiosProduto = document.getElementById('beneficiosProduto');\
-      const formaUso = document.getElementById('formaUso');\
-      const interessePublico = document.getElementById('interessePublico');\
-      const roteiroVeo3 = document.getElementById('roteiroVeo3');\
-      const tituloSeo = document.getElementById('tituloSeo');\
-      const descricaoProduto = document.getElementById('descricaoProduto');\
-\
-      const custo = parseFloat(document.getElementById('custoProduto').value || 0);\
-      const imposto = parseFloat(document.getElementById('aliquota').value || 0) / 100;\
-      const margem = parseFloat(document.getElementById('margem').value || 0) / 100;\
-      const comissao = parseFloat(document.getElementById('comissao').value || 0);\
-      const antecipacao = parseFloat(document.getElementById('antecipacao').value || 0);\
-\
-      const custoFixo = 4.00;\
-      const custoTotal = custo + custoFixo;\
-      const percentualLiquido = 1 - (imposto + margem + comissao + antecipacao);\
-      const precoFinal = custoTotal / percentualLiquido;\
-\
-      const valorImposto = precoFinal * imposto;\
-      const valorComissao = precoFinal * comissao;\
-      const valorAntecipacao = precoFinal * antecipacao;\
-      const valorMargem = precoFinal * margem;\
-\
-      blocoPreco.innerHTML = `\
-        <div class="preco-final">\uc0\u55357 \u56504  Pre\'e7o Sugerido de Venda: R$ $\{precoFinal.toFixed(2)\}<br>\
-        <small>Margem de contribui\'e7\'e3o: R$ $\{valorMargem.toFixed(2)\} ($\{(margem * 100).toFixed(1)\}%)</small></div>\
-        <div class="custo-breakdown">\
-          <div><b>Custo do produto:</b> R$ $\{custo.toFixed(2)\}</div>\
-          <div><b>Taxa fixa operacional:</b> R$ $\{custoFixo.toFixed(2)\}</div>\
-          <div><b>Impostos ($\{(imposto * 100).toFixed(1)\}%):</b> R$ $\{valorImposto.toFixed(2)\}</div>\
-          <div><b>Comiss\'e3o Shopee ($\{(comissao * 100).toFixed(1)\}%):</b> R$ $\{valorComissao.toFixed(2)\}</div>\
-          <div><b>Shopee antecipa ($\{(antecipacao * 100).toFixed(1)\}%):</b> R$ $\{valorAntecipacao.toFixed(2)\}</div>\
-        </div>\
-      `;\
-\
-      const prompt = `Com base no seguinte produto:\\n\\nNome: $\{nome\}\\nDescri\'e7\'e3o b\'e1sica: $\{desc\}\\n\\nResponda os t\'f3picos abaixo de forma clara e objetiva:\\n\\n1. Liste 10 palavras-chave pelas quais as pessoas procuram por esse produto online.\\n2. Liste 10 dores que esse produto resolve.\\n3. Liste 10 obje\'e7\'f5es comuns de compradores.\\n4. Liste 10 benef\'edcios do produto.\\n5. Contextos de uso ideais.\\n6. Interesses do p\'fablico-alvo.\\n7. Roteiro para v\'eddeo VEO3 dividido em 3 blocos de 10 segundos (colunas: tempo, cena, fala pt/en, cen\'e1rio, edi\'e7\'e3o e IA recomendada).\\n8. T\'edtulo SEO com no m\'e1ximo 60 caracteres (sem pontua\'e7\'e3o).\\n9. Descri\'e7\'e3o para Mercado Livre com 5 perguntas frequentes.`;\
-\
-      resultado.textContent = 'Consultando a IA...';\
-\
-      const response = await fetch('https://api.openai.com/v1/completions', \{\
-        method: 'POST',\
-        headers: \{\
-          'Content-Type': 'application/json',\
-          'Authorization': `Bearer SUA_CHAVE_API_AQUI`\
-        \},\
-        body: JSON.stringify(\{\
-          model: "text-davinci-003",\
-          prompt: prompt,\
-          max_tokens: 150,\
-          temperature: 0.7\
-        \})\
-      \});\
-\
-      const data = await response.json();\
-\
-      palavrasChave.textContent = data.choices[0].text.split('\\n')[0];\
-      doresSolucionadas.textContent = data.choices[0].text.split('\\n')[1];\
-      obje\'e7\'f5es.textContent = data.choices[0].text.split('\\n')[2];\
-      beneficiosProduto.textContent = data.choices[0].text.split('\\n')[3];\
-      formaUso.textContent = data.choices[0].text.split('\\n')[4];\
-      interessePublico.textContent = data.choices[0].text.split('\\n')[5];\
-      roteiroVeo3.textContent = data.choices[0].text.split('\\n')[6];\
-      tituloSeo.textContent = data.choices[0].text.split('\\n')[7];\
-      descricaoProduto.textContent = data.choices[0].text.split('\\n')[8];\
-    \});\
-  </script>\
-</body>\
-</html>\
-}
+    <div class="grid-2">
+      <div>
+        <label for="nomeProduto">Nome do Produto:</label>
+        <input type="text" id="nomeProduto" placeholder="Ex: Garrafa Inox">
+      </div>
+      <div>
+        <label for="custoProduto">Custo do Produto (R$):</label>
+        <input type="number" id="custoProduto" placeholder="Ex: 10">
+      </div>
+
+      <div>
+        <label for="aliquota">Alíquota de Imposto (%):</label>
+        <input type="number" id="aliquota" placeholder="Ex: 6">
+      </div>
+      <div>
+        <label for="margem">Margem Desejada (%):</label>
+        <input type="number" id="margem" placeholder="Ex: 30">
+      </div>
+
+      <div>
+        <label for="comissao">Comissão da Shopee:</label>
+        <select id="comissao">
+          <option value="0.14">Não participo do programa de frete grátis (14%)</option>
+          <option value="0.20">Participo do programa de frete grátis (20%)</option>
+        </select>
+      </div>
+      <div>
+        <label for="antecipacao">Shopee antecipa:</label>
+        <select id="antecipacao">
+          <option value="0">Não participa</option>
+          <option value="0.02">Sim - 2%</option>
+          <option value="0.025">Sim - 2.5%</option>
+          <option value="0.03">Sim - 3.0%</option>
+          <option value="0.035">Sim - 3.5%</option>
+        </select>
+      </div>
+    </div>
+
+    <label for="descProduto">Descrição Básica do Produto:</label>
+    <textarea id="descProduto" placeholder="Ex: Garrafa Inox Vermelha 500 ml"></textarea>
+
+    <button id="btnGerar">✨ Gerar Conteúdo com IA</button>
+
+    <div class="output" id="resultado">
+      <div class="output-section">
+        <h2>Resultado</h2>
+        <pre id="blocoResultado">Nada gerado ainda.</pre>
+      </div>
+      <div class="output-section">
+        <h2>💰 Cálculo de Precificação</h2>
+        <div id="blocoPreco" class="custo-breakdown">Preencha os campos acima e clique em "Gerar".</div>
+      </div>
+      <div class="output-section">
+        <h2>📈 Palavras-chaves mais buscadas</h2>
+        <pre id="palavrasChave"></pre>
+      </div>
+      <div class="output-section">
+        <h2>💢 Dores solucionadas</h2>
+        <pre id="doresSolucionadas"></pre>
+      </div>
+      <div class="output-section">
+        <h2>🚧 Objeções comuns</h2>
+        <pre id="objeções"></pre>
+      </div>
+      <div class="output-section">
+        <h2>🎯 Benefícios do produto</h2>
+        <pre id="beneficiosProduto"></pre>
+      </div>
+      <div class="output-section">
+        <h2>🔄 Formas de Uso</h2>
+        <pre id="formaUso"></pre>
+      </div>
+      <div class="output-section">
+        <h2>👥 Interesse do público-alvo</h2>
+        <pre id="interessePublico"></pre>
+      </div>
+      <div class="output-section">
+        <h2>🎬 Roteiro VEO3</h2>
+        <pre id="roteiroVeo3"></pre>
+      </div>
+      <div class="output-section">
+        <h2>🔎 Título SEO</h2>
+        <pre id="tituloSeo"></pre>
+      </div>
+      <div class="output-section">
+        <h2>📝 Descrição</h2>
+        <pre id="descricaoProduto"></pre>
+      </div>
+    </div>
+  </div>
+
+  <script type="module">
+    document.getElementById('btnGerar').addEventListener('click', async function() {
+      const nome = document.getElementById('nomeProduto').value;
+      const desc = document.getElementById('descProduto').value;
+      const resultado = document.getElementById('blocoResultado');
+      const blocoPreco = document.getElementById('blocoPreco');
+      const palavrasChave = document.getElementById('palavrasChave');
+      const doresSolucionadas = document.getElementById('doresSolucionadas');
+      const objeções = document.getElementById('objeções');
+      const beneficiosProduto = document.getElementById('beneficiosProduto');
+      const formaUso = document.getElementById('formaUso');
+      const interessePublico = document.getElementById('interessePublico');
+      const roteiroVeo3 = document.getElementById('roteiroVeo3');
+      const tituloSeo = document.getElementById('tituloSeo');
+      const descricaoProduto = document.getElementById('descricaoProduto');
+
+      const custo = parseFloat(document.getElementById('custoProduto').value || 0);
+      const imposto = parseFloat(document.getElementById('aliquota').value || 0) / 100;
+      const margem = parseFloat(document.getElementById('margem').value || 0) / 100;
+      const comissao = parseFloat(document.getElementById('comissao').value || 0);
+      const antecipacao = parseFloat(document.getElementById('antecipacao').value || 0);
+
+      const custoFixo = 4.00;
+      const custoTotal = custo + custoFixo;
+      const percentualLiquido = 1 - (imposto + margem + comissao + antecipacao);
+      const precoFinal = custoTotal / percentualLiquido;
+
+      const valorImposto = precoFinal * imposto;
+      const valorComissao = precoFinal * comissao;
+      const valorAntecipacao = precoFinal * antecipacao;
+      const valorMargem = precoFinal * margem;
+
+      blocoPreco.innerHTML = `
+        <div class="preco-final">💸 Preço Sugerido de Venda: R$ ${precoFinal.toFixed(2)}<br>
+        <small>Margem de contribuição: R$ ${valorMargem.toFixed(2)} (${(margem * 100).toFixed(1)}%)</small></div>
+        <div class="custo-breakdown">
+          <div><b>Custo do produto:</b> R$ ${custo.toFixed(2)}</div>
+          <div><b>Taxa fixa operacional:</b> R$ ${custoFixo.toFixed(2)}</div>
+          <div><b>Impostos (${(imposto * 100).toFixed(1)}%):</b> R$ ${valorImposto.toFixed(2)}</div>
+          <div><b>Comissão Shopee (${(comissao * 100).toFixed(1)}%):</b> R$ ${valorComissao.toFixed(2)}</div>
+          <div><b>Shopee antecipa (${(antecipacao * 100).toFixed(1)}%):</b> R$ ${valorAntecipacao.toFixed(2)}</div>
+        </div>
+      `;
+
+      const prompt = `Com base no seguinte produto:\n\nNome: ${nome}\nDescrição básica: ${desc}\n\nResponda os tópicos abaixo de forma clara e objetiva:\n\n1. Liste 10 palavras-chave pelas quais as pessoas procuram por esse produto online.\n2. Liste 10 dores que esse produto resolve.\n3. Liste 10 objeções comuns de compradores.\n4. Liste 10 benefícios do produto.\n5. Contextos de uso ideais.\n6. Interesses do público-alvo.\n7. Roteiro para vídeo VEO3 dividido em 3 blocos de 10 segundos (colunas: tempo, cena, fala pt/en, cenário, edição e IA recomendada).\n8. Título SEO com no máximo 60 caracteres (sem pontuação).\n9. Descrição para Mercado Livre com 5 perguntas frequentes.`;
+
+      resultado.textContent = 'Consultando a IA...';
+
+      const response = await fetch('https://api.openai.com/v1/completions', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer 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`
+        },
+        body: JSON.stringify({
+          model: "text-davinci-003",
+          prompt: prompt,
+          max_tokens: 150,
+          temperature: 0.7
+        })
+      });
+
+      const data = await response.json();
+
+      palavrasChave.textContent = data.choices[0].text.split('\n')[0];
+      doresSolucionadas.textContent = data.choices[0].text.split('\n')[1];
+      objeções.textContent = data.choices[0].text.split('\n')[2];
+      beneficiosProduto.textContent = data.choices[0].text.split('\n')[3];
+      formaUso.textContent = data.choices[0].text.split('\n')[4];
+      interessePublico.textContent = data.choices[0].text.split('\n')[5];
+      roteiroVeo3.textContent = data.choices[0].text.split('\n')[6];
+      tituloSeo.textContent = data.choices[0].text.split('\n')[7];
+      descricaoProduto.textContent = data.choices[0].text.split('\n')[8];
+    });
+  </script>
+</body>
+</html>
